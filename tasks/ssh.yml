@@ -37,7 +37,7 @@
     regexp: '^{{ item }}'
     line: '{{ item }} ALL=(ALL) NOPASSWD: ALL'
     state: present
-    validate: 'visudo -cf %s'
+    validate: 'sudo visudo -cf %s'
     mode: 0644
   with_items: "{{ security_sudoers_passwordless }}"
   when: security_sudoers_passwordless | length > 0
